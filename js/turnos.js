@@ -13,10 +13,15 @@ function renderAgenda() {
     agenda.forEach(turno => {
         const div = document.createElement("div")
         div.className = "card"
-        div.innerHTML =    `<h3>${turno.especialidad}</h3>
-                            <p>${turno.fecha}</p>
-                            <p>${turno.hora}</p>
-                            <button class="BotonEliminar" id="${turno.id}">Eliminar</button>`
+        div.innerHTML = ` <h3>${turno.especialidad}</h3>
+                          <p>Fecha: ${turno.fecha}</p>
+                          <p>Hora: ${turno.hora}</p>
+                          <h4>Paciente:</h4>
+                          <p>Nombre: ${turno.paciente.nombre}</p>
+                          <p>DNI: ${turno.paciente.dni}</p>
+                          <p>Contacto: ${turno.paciente.contacto}</p>
+                          <p>Obra Social: ${turno.paciente.obraSocial}</p>
+                          <button class="BotonEliminar" id="${turno.id}">Eliminar</button>`
         contenedorAgenda.appendChild(div)
     })
 
@@ -27,7 +32,7 @@ function renderAgenda() {
   }
 
 function eliminarTurno(e) {
-    const id = parseInt(e.currentTarget.id)
+    const id = e.currentTarget.id
     let agenda = JSON.parse(localStorage.getItem("agenda")) || []
     agenda = agenda.filter(turno => turno.id !== id)
     localStorage.setItem("agenda", JSON.stringify(agenda))

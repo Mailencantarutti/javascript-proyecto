@@ -20,12 +20,37 @@ a {
     font-weight: bold;
 }
 
+.formulario,
+#form-paciente {
+    max-width: 400px;
+    margin: 0 auto 30px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    border: 2px solid #ccc;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+}
+label {
+    display: block;
+    margin: 10px 0;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 4px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.container,
 #turnos-container,
 #agenda-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
-    padding: 40px;
+    padding: 40px 0;
     justify-items: center;
 }
 
